@@ -1,0 +1,132 @@
+body {
+   margin: 0;
+   background: linear-gradient(to left, rgb(0, 0, 0), rgb(255, 0, 0));
+   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+@keyframes slideInFromTop {
+   0% {
+      transform: translateY(-100px);
+      opacity: 0;
+   }
+   60% {
+      transform: translateY(20px);
+   }
+   100% {
+      transform: translateY(0);
+      opacity: 1;
+   }
+}
+
+@keyframes headingGlow {
+   0% {
+      text-shadow: 0 0 10px rgba(255, 238, 0, 0.5);
+   }
+   50% {
+      text-shadow: 0 0 20px rgba(255, 238, 0, 0.8);
+   }
+   100% {
+      text-shadow: 0 0 10px rgba(255, 238, 0, 0.5);
+   }
+}
+
+.headin {
+   font-family: Verdana, Geneva, Tahoma, sans-serif, 'Times New Roman', Times, serif;
+   color: rgb(255, 238, 0);
+   text-align: center;
+   padding-top: 10px;
+   font-size: 35px;
+   animation: slideInFromTop 1s ease-out forwards, headingGlow 2s infinite ease-in-out;
+   transition: transform 0.3s ease;
+}
+
+.headin:hover {
+   transform: scale(1.05);
+}
+
+.info1 {
+   position: absolute;
+   right: 100px;
+   top: 20px;
+   text-align: right;
+   color: azure;
+   font-size: 14px;
+   transition: transform 0.3s ease;
+}
+
+.info1:hover {
+   transform: translateX(-10px);
+}
+
+.app {
+   display: grid;
+   grid-template-columns: repeat(auto-fill, 300px);
+   gap: 50px;
+   justify-content: center;
+   padding: 50px;
+}
+
+.note {
+   padding: 30px;
+   border-radius: 15px;
+   resize: none;
+   box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+   font-size: 18px;
+   height: 200px;
+   color: red;
+   border: none;
+   outline: none;
+   background: black;
+   box-sizing: border-box;
+   transition: all 0.3s ease;
+}
+
+.note::placeholder {
+   color: white;
+   opacity: 0.8;
+}
+
+.note:hover,
+.note:focus {
+   box-shadow: 0 0 10px black;
+   background: black;
+}
+
+.btn {
+   height: 200px;
+   border: none;
+   border-radius: 10%;
+   text-align: center;
+   font-size: 50px;
+   font-weight: 700;
+   color: rgb(194, 184, 0);
+   cursor: pointer;
+   background-color: #470000;
+   transition: all 0.3s ease;
+   justify-content: center;
+}
+
+.btn:hover {
+   transform: scale(1.1);
+   background-color: orange;
+   color: aqua;
+}
+
+.note.deleting {
+   animation: deleteNote 0.3s ease-out forwards;
+}
+
+.popup-message {
+   position: fixed;
+   top: 20px;
+   right: 20px;
+   background: rgba(255, 0, 0, 0.9);
+   color: white;
+   padding: 15px 25px;
+   border-radius: 10px;
+   font-size: 16px;
+   box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+   animation: popupFade 3s ease-in-out forwards;
+   z-index: 1000;
+   display: none;
+}
